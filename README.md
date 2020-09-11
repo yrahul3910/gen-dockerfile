@@ -8,8 +8,8 @@ A Dockerfile generator to Dockerize your Applications.
 This will help you create custom docker-images or docker containers.
 
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square) | ![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
-![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)
-![forthebadge made-with-nodejs](http://ForTheBadge.com/images/badges/made-with-javascript.svg)
+![ForTheBadge built-with-love](https://ForTheBadge.com/images/badges/built-with-love.svg)
+![forthebadge made-with-nodejs](https://ForTheBadge.com/images/badges/made-with-javascript.svg)
 ![Env](https://img.shields.io/badge/App%20Env-CLI%20compatible-yellow) | ![Dockerfile](https://img.shields.io/badge/Creates-Dockerfile-blue)
 
 ## Installation
