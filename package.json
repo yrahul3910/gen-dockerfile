@@ -13,7 +13,9 @@
     "generator",
     "dftechs"
   ],
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "author": "BRAVO68WEB",
   "license": "ISC",
   "bugs": {
