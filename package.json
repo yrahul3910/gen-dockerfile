@@ -2,10 +2,7 @@
   "name": "docker-gen",
   "version": "0.0.1",
   "description": "A Dockerfile Generator for your Applications",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DFTECHSDEVCENTER/docker-gen.git"
