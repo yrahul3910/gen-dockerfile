@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DFTECHSDEVCENTER/docker-gen.git"
+    "url": "git+https://github.com/DFTECHSDEVCENTER/gen-dockerfile.git"
   },
   "keywords": [
     "gen-dockerfile",
@@ -16,7 +16,7 @@
   "author": "BRAVO68WEB",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DFTECHSDEVCENTER/docker-gen/issues"
+    "url": "https://github.com/DFTECHSDEVCENTER/gen-dockerfile/issues"
   },
-  "homepage": "https://github.com/DFTECHSDEVCENTER/docker-gen#readme"
+  "homepage": "https://github.com/DFTECHSDEVCENTER/gen-dockerfile#readme"
 }
