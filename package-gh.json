@@ -1,5 +1,5 @@
 {
-  "name": "gen-dockerfile",
+  "name": "@DFTECHSDEVCENTER/gen-dockerfile",
   "version": "0.0.1-beta",
   "description": "A Dockerfile Generator for your Applications to create docker images",
   "main": "src/index.js",
