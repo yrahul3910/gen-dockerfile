@@ -13,6 +13,7 @@
     "generator",
     "dftechs"
   ],
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "author": "BRAVO68WEB",
   "license": "ISC",
   "bugs": {
