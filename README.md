@@ -9,9 +9,11 @@ A Dockerfile generator to Dockerize your Applications and it's images
 
 ;;TODO
 >This project will get started soon..
+>Added GitHub NPMjs package generation automated
 
 ## What we are going to Do
 
 We are building an Nodejs CLI app to generate Dockerfile for your Projects
 
 It will be compatible with Nodejs Apps and Python 3 apps in early stage 
+
