@@ -1,5 +1,7 @@
 # gen-dockerfile
 
+![logo](https://raw.githubusercontent.com/DFCommunity/img-stack/master/Adobe_Post_20200912_0004510.9314596673956063.png)
+
 ## About
 
 A Dockerfile generator to Dockerize your Applications.
@@ -9,6 +11,12 @@ This will help you create custom docker-images or docker containers.
 ![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)
 ![forthebadge made-with-nodejs](http://ForTheBadge.com/images/badges/made-with-javascript.svg)
 ![Env](https://img.shields.io/badge/App%20Env-CLI%20compatible-yellow) | ![Dockerfile](https://img.shields.io/badge/Creates-Dockerfile-blue)
+
+## Installation
+
+```
+npm i -g gen-dockerfile
+```
 
 ## Release Info
 
@@ -27,6 +35,7 @@ This will help you create custom docker-images or docker containers.
 
 - [x] This project will get started soon
 - [x] Added GitHub NPMjs package generation automated
+- [x] Created proper Readme
 
 ## What we are going to Do
 
