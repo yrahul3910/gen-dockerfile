@@ -1,0 +1,25 @@
+{
+  "name": "docker-gen",
+  "version": "0.0.1",
+  "description": "A Dockerfile Generator for your Applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DFTECHSDEVCENTER/docker-gen.git"
+  },
+  "keywords": [
+    "docker-gen",
+    "docker",
+    "generator",
+    "dftechs"
+  ],
+  "author": "BRAVO68WEB",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DFTECHSDEVCENTER/docker-gen/issues"
+  },
+  "homepage": "https://github.com/DFTECHSDEVCENTER/docker-gen#readme"
+}
