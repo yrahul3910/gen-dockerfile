@@ -19,7 +19,7 @@ Current Version: 0.0.3-beta
 
 ## Installation
 
-```
+```yaml
 npm i -g gen-dockerfile
 ```
 
@@ -71,3 +71,7 @@ NPMjs Registry :- [Click Here](https://www.npmjs.com/package/gen-dockerfile)
 GitHub Registry :- [Click Here](https://github.com/DFTECHSDEVCENTER/gen-dockerfile/packages/)
 
 Docs and References :- [Click Here](https://github.com/DFTECHSDEVCENTER/gen-dockerfile/wiki)
+
+Github Repositary :- [Click Here](https://github.com/DFTECHSDEVCENTER/gen-dockerfile/)
+
+### End
