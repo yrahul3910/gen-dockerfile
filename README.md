@@ -8,7 +8,7 @@ A Dockerfile generator to Dockerize your Applications.
 This will help you create custom docker-images or docker containers.
 
 ```yaml
-Current Version: 0.0.4
+Current Version: 0.0.4-beta
 ```
 
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square) | ![Open Source Love](https://badges.frapsoft.com/os/v1/open-source-150x25.png?v=103)
@@ -71,7 +71,7 @@ It will be compatible with Nodejs Apps and Python3 Apps in early stage
 
 ### Links
 
-Website :- [Click Here](http://gen.dcoker.dfcommunity.win)
+Website :- [Click Here](http://gen.docker.dfcommunity.win)
 
 NPMjs Registry :- [Click Here](https://www.npmjs.com/package/gen-dockerfile)
 
