@@ -8,7 +8,7 @@ A Dockerfile generator to Dockerize your Applications.
 This will help you create custom docker-images or docker containers.
 
 ```yaml
-Current Version: 0.0.3-beta
+Current Version: 0.0.4
 ```
 
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square) | ![Open Source Love](https://badges.frapsoft.com/os/v1/open-source-150x25.png?v=103)
@@ -49,14 +49,21 @@ npm i -g gen-dockerfile
   - [x] App Name
   - [x] Deployment OS
   - [x] App Pro-Lang
-- [x] Made the Project globally accessable
+- [x] Made the package globally accessable
+- [x] Added 2nd set of questions ...
+  - [x] Port expose
+  - [x] Port Name
+  - [x] Entry Point
+  - [x] Fixes Docker FROM images
+- [x] Fixed Some Bugs
 - [ ] All bugs fixed (Really .....)
+- [ ] Project Finish and could be used in Production (NO ..... Not Now)
 
 ## What we are going to Do
 
 We are building an Nodejs CLI app to generate Dockerfile for your Projects
 
-It will be compatible with Nodejs Apps and Python 3 apps in early stage
+It will be compatible with Nodejs Apps and Python3 Apps in early stage
 
 ## License
 
