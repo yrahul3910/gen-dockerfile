@@ -4,9 +4,14 @@ const fs = require("fs");
 var inquirer = require("inquirer");
 const path = require("path");
 const existingConfig = fs.existsSync("Dockerfile");
-
+const generator = require('dockerfile-generator')
 var installerSc = null;
 var lang = null;
+let inputConfig =     {
+  "from": {},
+  "copy":  [],
+  "run":{}
+}
 
 function buildOS() {
   inquirer
@@ -26,23 +31,22 @@ function buildOS() {
     .then((answers) => {
       console.log(answers);
       if (answers.osType) {
-          const os = answers.osType;
-          switch(os)
+          const osType = answers.osType;
+          switch(osType)
           {
               case 'Ubuntu Based' :
-              answers.osType = 'dftechs/ubuntu-dev';
+              inputConfig.from = { "baseImage" : "dftechs/ubuntu-dev"};
               break;
               case 'Debian Based' :
-              answers.osType = 'dftechs/debian-dev';
+              inputConfig.from = { "baseImage" : "dftechs/debian-dev" };
               break;
               case 'Clear Linux Based' :
-              answers.osType = 'dftechs/clearlinux-dev';
+              inputConfig.from = { "baseImage" : "dftechs/clearlinux-dev"};
               break;
               case 'Alpine Based' :
-              answers.osType = 'dftechs/alpine-dev';
+              inputConfig.from = { "baseImage" : "dftechs/alpine-dev" };
               break;
           }
-        console.log(answers);
         buildLang();
       } else {
         console.log("Goodbye 👋");
@@ -51,6 +55,7 @@ function buildOS() {
 }
 
 function buildLang() {
+  let depencyDescriptor;
   inquirer
     .prompt([
       {
@@ -66,13 +71,17 @@ function buildLang() {
       if (answers.appType) {
           switch(answers.appType){
               case 'Nodejs' :
-                installerSc = 'npm install'
+                installerSc = ['npm' , 'install'];
+                depencyDescriptor = 'package.json'
                 break;
               case 'Python3' :
-                installerSc = 'pip3 install -r requirements.txt'  
+                installerSc = ['pip' , 'install' , '-r',  'requirements.txt']
+                depencyDescriptor = 'requirements.txt'
                 break;
           }
         console.log(installerSc);
+        inputConfig.copy[depencyDescriptor] = '.' ;
+        inputConfig.run = installerSc;
         enablePort();
       } else {
         console.log("Goodbye 👋");
@@ -87,14 +96,14 @@ function buildEnvPort() {
         type: "text",
         name: "envPort",
         message: "What PORT do you want to expose ?",
-        default: 5000,
+        default: `${lang === 'Nodejs' ? 3000 : 5000}`,
       },
     ])
     .then((answers) => {
       console.log(answers);
       if (answers.envPort) {
-        // console.log("Working ... 👋");
-        finalCMD();
+        inputConfig.expose = [answers.envPort];
+        copySrc();
       } else {
         console.log("Goodbye 👋");
       }
@@ -102,29 +111,29 @@ function buildEnvPort() {
 }
 
 function finalCMD() {
+  let starter;
   inquirer
     .prompt([
       {
         type: "text",
         name: "entryPoint",
         message: "Which file initiates your app ?",
-        default: `index.js`,
+        default: `${lang === 'Nodejs' ? 'index.js' : 'main.py'}`,
       },
     ])
     .then((answers) => {
       var stFile = answers.entryPoint;
           switch(lang){
               case 'Nodejs':
-              var starter = "node ";
+              starter = "node";
               break;
               case 'Python3':
-              var starter = "python3 ";
+              starter = "python3";
               break;
           }
-        stFile = starter + stFile;
-        answers.entryPoint = stFile;
+        inputConfig.cmd = [starter , stFile ];
     console.log(answers);
-    console.log("Work in Progress .... 🚀");
+    buildFile();
     });
 }
 
@@ -142,10 +151,56 @@ function enablePort() {
       if (answers.enbPort) {
         buildEnvPort();
       } else {
-        finalCMD();
+        copySrc();
       }
     });
 }
+
+
+function copySrc(){
+  inquirer.registerPrompt('fuzzypath', require('inquirer-fuzzy-path'));
+  inquirer.prompt([
+    {
+      type: 'fuzzypath',
+      name: 'path',
+      excludePath: nodePath =>  nodePath.startsWith('node_modules') || nodePath.includes('git'),
+      excludeFilter: nodePath => nodePath == '.',
+      itemType: 'directory',
+      rootPath: '.',
+      message: 'select a source directory of your component:',
+      default: `.`,
+      suggestOnly: false,
+      depthLimit: 0,
+    }
+  ])
+  .then((answers) => {
+    console.log(answers);
+    if(answers.path === '.'){
+      inputConfig.copy = [];
+    }
+    inputConfig.copy[answers.path] = '.';
+    finalCMD();
+  })
+}
+
+function buildFile(){
+  console.log("Work in Progress .... 🚀");
+  generator.generate(inputConfig).then((response) => 
+  {
+    
+    fs.writeFile(`${process.cwd()}/Dockerfile`,response, (err) => {
+      if(err) {
+        console.log('Error to create Dockerfile');
+        return;
+      }
+      console.log('File created successfully');
+      console.log("Goodbye 👋");
+    });
+  })
+  .catch(err => console.log("Error to generate Dockerfile"));
+  
+}
+
 
 function buildAppName() {
   inquirer
