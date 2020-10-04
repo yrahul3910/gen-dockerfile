@@ -1,6 +1,6 @@
 {
   "name": "gen-dockerfile",
-  "version": "0.0.5-charlie",
+  "version": "0.0.5-alpha",
   "description": "A Dockerfile Generator for your Applications to create docker images",
   "main": "src/index.js",
   "repository": {
@@ -17,7 +17,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "author": "BRAVO68WEB",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/DFTECHSDEVCENTER/gen-dockerfile/issues"
   },
