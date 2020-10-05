@@ -99,7 +99,7 @@ function buildLang() {
           }
         console.log(installerSc);
         inputConfig.copy[depencyDescriptor] = '.' ;
-        inputConfig.run += packagesMap[answers.appType][inputConfig.from];
+        inputConfig.run += packagesMap[answers.appType][inputConfig.from["baseImage"]];
         inputConfig.run += ` && ${installerSc}`;
         enablePort();
       } else {
